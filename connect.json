@@ -1,0 +1,22 @@
+{
+    "name": "kcbq-connect",
+    "config": {
+        "plugin.path":"/usr/share/java/kcbq-connector/",
+        "connector.class":"com.wepay.kafka.connect.bigquery.BigQuerySinkConnector",
+        "value.converter.schema.registry.url": "http://schema-registry:8081",
+        "tasks.max":"1",
+        "topics":"resource",
+        "autoCreateTables":"true",
+        "sanitizeTopics":"true",
+        "autoUpdateSchemas":"true",
+        "schema.string":"{\"namespace\": \"com.v.resources\", \"name\": \"Resource\", \"type\": \"record\", \"fields\": [ { \"name\": \"name\", \"type\": \"string\" }, { \"name\": \"title\", \"type\": \"string\" } ] }",
+        "schema.keyfield": "name",
+        "key.converter":"org.apache.kafka.connect.storage.StringConverter",
+        "key.converter.schemas.enable":"true",
+        "value.converter": "io.confluent.connect.avro.AvroConverter",
+        "value.converter.schemas.enable":"true",
+        "project":"kafka-connect-377713",
+        "defaultDataset":"resources",
+        "keyfile":"/usr/share/java/key.json"
+    }
+  }
